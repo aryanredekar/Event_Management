@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.innovators.eventmanagement.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,8 +37,44 @@ class Filter : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_filter, container, false)
+        val view = inflater.inflate(R.layout.fragment_filter, container, false)
+
+        val chipGroupCity = view.findViewById<ChipGroup>(R.id.chipGroupCity)
+        val chipGroupProfession = view.findViewById<ChipGroup>(R.id.chipGroupProfession)
+        val btnApply = view.findViewById<MaterialButton>(R.id.btnApplyFilter)
+
+        val cities = listOf("Mumbai", "Delhi", "Pune", "Bangalore", "Hyderabad")
+        val professions = listOf("Make Artist", "Event Manager", "Photographer", "Decorator",
+            "Caterers", "Mehendi Artist", "Fashion Designer",
+            "Vintage Car Owner", "Choreographer")
+
+
+        addChips(chipGroupCity, cities)
+        addChips(chipGroupProfession, professions)
+
+        btnApply.setOnClickListener {
+            val selectedCity = getSelectedChipText(chipGroupCity)
+            val selectedProfession = getSelectedChipText(chipGroupProfession)
+
+        }
+
+        return view
+    }
+    private fun addChips(chipGroup: ChipGroup, items: List<String>) {
+        val inflater = LayoutInflater.from(requireContext())
+        for (text in items) {
+            val chip = inflater.inflate(R.layout.item_chip, chipGroup, false) as Chip
+            chip.text = text
+            chipGroup.addView(chip)
+        }
+    }
+    private fun getSelectedChipText(chipGroup: ChipGroup): String? {
+        val chipId = chipGroup.checkedChipId
+        if (chipId != View.NO_ID) {
+            val chip = chipGroup.findViewById<Chip>(chipId)
+            return chip.text.toString()
+        }
+        return null
     }
 
     companion object {

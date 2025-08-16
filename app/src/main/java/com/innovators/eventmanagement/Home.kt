@@ -51,5 +51,4 @@ class Home : AppCompatActivity() {
                 .commit()
         }
     }
-
 }

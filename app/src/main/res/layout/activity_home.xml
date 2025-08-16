@@ -1,68 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
-    android:gravity="center|top"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center|top"
+    android:orientation="vertical"
     tools:context=".Home">
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/homeToolbar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/primary_color"
-        />
+        android:background="@color/primary_color" />
+
     <LinearLayout
         android:id="@+id/homeFragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
-        />
+        android:orientation="vertical" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/primary_color"
-        >
+        android:background="@color/primary_color">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="3"
-            >
+            android:weightSum="3">
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/primary_color"
-                app:icon="@drawable/ic_home"
-                app:iconGravity="textTop"
                 android:layout_weight="1"
+                android:backgroundTint="@color/primary_color"
                 android:text="Home"
-                />
+                app:icon="@drawable/ic_home"
+                app:iconGravity="textTop" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/primary_color"
-                app:icon="@drawable/ic_filter"
                 android:layout_weight="1"
-                app:iconGravity="textTop"
+                android:backgroundTint="@color/primary_color"
                 android:text="Filter"
-                />
+                app:icon="@drawable/ic_filter"
+                app:iconGravity="textTop" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/primary_color"
-                app:icon="@drawable/ic_person"
                 android:layout_weight="1"
-                app:iconGravity="textTop"
+                android:backgroundTint="@color/primary_color"
                 android:text="Profile"
-                />
+                app:icon="@drawable/ic_person"
+                app:iconGravity="textTop" />
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </LinearLayout>
