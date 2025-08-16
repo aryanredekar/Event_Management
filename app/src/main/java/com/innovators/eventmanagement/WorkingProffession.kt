@@ -1,5 +1,6 @@
 package com.innovators.eventmanagement
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -44,6 +45,9 @@ class WorkingProffession : AppCompatActivity() {
             val selectedProfession = professionEditText.text.toString().trim()
             if (selectedProfession in professions) {
                 Toast.makeText(this, "Profession: $selectedProfession", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, Home::class.java)
+                startActivity(intent)
             } else {
                 professionInputLayout.error = "Please select a valid profession"
             }
